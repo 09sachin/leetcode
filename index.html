@@ -59,7 +59,7 @@ var max_rated = [];
 
 var ind = 0;
 for(let i=0; i<x; i++){
-	if(json[0].categoryTitle=='Algorithms') {
+	if(json[i].categoryTitle=='Algorithms' && json[i].paidOnly==false) {
 		algo1.push(json[i]);
 		let tmp = [parseInt(json[i].likes), ind];
 		max_rated.push(tmp);
@@ -527,6 +527,7 @@ for(let i=0; i<sss.length; i++){
 }
 
 var n = algo.length;
+document.getElementById("head").innerHTML = "Top rated questions(Algo) : " + 0 + " to " + 200 + " | Total questions : " + n;
 var table = " <tr><th>#</th><th>Question</th><th class='tag'>Tags</th><th>Difficulty</th><th>Likes and dislikes</th></tr>";
 for(let i=0; i<200; i++){
 	let tab1,tab2,tab3, tab4;
@@ -557,7 +558,7 @@ document.getElementById("myAnchor").addEventListener("click", function(event){
 	console.log(st);
 	console.log(ed);
 	console.log(algo.length)
-	document.getElementById("head").innerHTML = "Top rated questions : " + st + " to " + ed;
+	document.getElementById("head").innerHTML= "Top rated questions(Algo) : " + st+ " to " +ed + " | Total questions : " + n;
 	table = " <tr><th>#</th><th>Question</th><th class='tag'>Tags</th><th>Difficulty</th><th>Likes and dislikes</th></tr>";
 	for(let i=st; i<ed; i++){
 		let tab1,tab2,tab3, tab4;
